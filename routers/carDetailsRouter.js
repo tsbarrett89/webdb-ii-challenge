@@ -20,5 +20,22 @@ router.post('/', (req, res) => {
         .catch(err => res.status(500).json({errorMessage:"error adding car details"}))
 })
 
+router.put('/:id', (req, res) =>{
+    const carDetails = req.body;
+
+    db('car_details').update(carDetails, 'id').where({ id: req.params.id })
+        .then(details => {
+            res.status(201).json(details);
+        })
+        .catch(err => res.status(500).json({errorMessage:"error updating car details"}))
+})
+
+router.delete('/:id', (req, res) => {
+    db('car_details').delete().where({ id: req.params.id })
+        .then(details => {
+            res.status(201).json(details);
+        })
+        .catch(err => res.status(500).json({errorMessage:"error deleting car details"}))
+})
 
 module.exports = router
