@@ -7,9 +7,9 @@ const server = express()
 server.use(express.json());
 
 server.get('/', (req, res) => {
-    res.send(`Projects Sprint API`)
+    res.send(`webdb ii project`)
 })
 
-server.use('/api/projects', router);
+server.use('/api/carDetails', router);
 
 module.exports = server;

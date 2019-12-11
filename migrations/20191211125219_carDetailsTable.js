@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-  return knex.schema.createTable('carDetails', tbl => {
+  return knex.schema.createTable('car_details', tbl => {
       tbl.increments();
       tbl.string('VIN').notNullable();
       tbl.string('make').notNullable();
@@ -8,9 +8,11 @@ exports.up = function(knex) {
       tbl.integer('mileage').notNullable();
       tbl.string('transmission_type');
       tbl.string('title_status');
+
+
   })
 };
 
 exports.down = function(knex) {
-  
+  return knex.schema.dropTableIfExists('car_details')
 };
