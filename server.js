@@ -1,6 +1,6 @@
 const express = require('express');
 
-const router = require('./routers/router.js');
+const router = require('./routers/carDetailsRouter.js');
 
 const server = express()
 
@@ -10,6 +10,6 @@ server.get('/', (req, res) => {
     res.send(`webdb ii project`)
 })
 
-server.use('/api/carDetails', router);
+server.use('/api/car-details', router);
 
 module.exports = server;
